@@ -10,6 +10,8 @@ document.getElementById("loadConsole").addEventListener("click", () => {
             if (xhr.status == 200) {
                 const response = JSON.parse(xhr.responseText)
                 // console.log(response.consoles.length) *** test code to make sure we got what we wanted. returns 9
+                
+                //#region Adding cards
                 const card = document.getElementById("cards")
                 card.innerHTML = ""
                 for (let i = 0; i < response.consoles.length; i++ ) {
@@ -27,6 +29,7 @@ document.getElementById("loadConsole").addEventListener("click", () => {
                 card.appendChild(cardImg)
                 card.appendChild(cardH2)
                 card.appendChild(cardP)
+                //#endregion
                 };               
             }
         }

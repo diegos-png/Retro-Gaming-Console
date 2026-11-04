@@ -1,0 +1,51 @@
+:root {
+    --gc-indigo: #6652A0;
+    --gc-spice: #E5732F;
+    --gc-platinum: #E5E5E5;
+    --gc-dark: #2B2B2B
+}
+
+body {
+    background-color: var(--gc-platinum) !important;
+    color: var(--gc-dark)
+}
+
+h1 {
+    color: var(--gc-indigo);
+    font-weight: 800
+}
+
+.btn-gamecube {
+    background-color: var(--gc-spice);
+    color: white;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s
+}
+
+.btn-gamecube:hover {
+    background-color: #C76125;
+    color: white
+}
+
+#summaryLine {
+    border-bottom: 2px solid var(--gc-indigo) !important;
+    color: var(--gc-dark);
+    font-weight: 500
+}
+
+.card {
+    border: 3px solid var(--gc-indigo) !important;
+    border-radius: 500
+}
+
+.card-title {
+    color: var(--gc-indigo) !important
+}
+
+.card-img-top {
+    background-color: #d1d1d1 !important;
+    border-bottom: 3pc solid var(--gc-indigo);
+    border-radius: 9px 9px 0 0
+}

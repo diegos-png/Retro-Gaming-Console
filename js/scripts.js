@@ -17,21 +17,33 @@ document.getElementById("loadConsole").addEventListener("click", () => {
                 //#region Adding cards
                 const card = document.getElementById("cards")
                 card.innerHTML = ""
+                card.className = "row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4"
                 for (let i = 0; i < response.consoles.length; i++) {
+
+                    const cardDiv = document.createElement("div")
+                    cardDiv.className = "col card p-3 text-center shadow-sm h-100"
+
                     const cardImg = document.createElement("img")
                     const cardH2 = document.createElement("h2")
                     const cardP = document.createElement("p")
 
+
                     cardImg.src = response.consoles[i].image
                     cardImg.alt = response.consoles[i].name
+                    cardImg.className = "card-img-top bg-light p-2 mb-3"
+                    cardImg.style.height = "200px"
+                    cardImg.style.objectFit = "contain"
 
                     cardH2.textContent = response.consoles[i].name
+                    cardH2.className = "h5 fw-bold"
 
                     cardP.textContent = `${response.consoles[i].manufacturer} ${response.consoles[i].year}`
+                    cardP.className = "text-muted mb-0"
 
-                    card.appendChild(cardImg)
-                    card.appendChild(cardH2)
-                    card.appendChild(cardP)
+                    cardDiv.appendChild(cardImg)
+                    cardDiv.appendChild(cardH2)
+                    cardDiv.appendChild(cardP)
+                    card.appendChild(cardDiv)
                 };
                 //#endregion
 
@@ -53,7 +65,7 @@ document.getElementById("loadConsole").addEventListener("click", () => {
 
 
             }
-            else if(xhr.status != 200){
+            else if (xhr.status != 200) {
                 message.textContent = `Error loading consoles. Error code: ${xhr.status}`
             }
         }

@@ -6,7 +6,10 @@ document.getElementById("loadConsole").addEventListener("click", () => {
     // xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8") ********* Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://ozarktechwebdev.com/api/consoles.json. (Reason: header ‘content-type’ is not allowed according to header ‘Access-Control-Allow-Headers’ from CORS preflight response).
 
     xhr.onreadystatechange = function () {
+        const message = document.getElementById("messages")
+        message.textContent = "Loading..."
         if (xhr.readyState === 4) {
+            message.innerHTML = ""
             if (xhr.status == 200) {
                 const response = JSON.parse(xhr.responseText)
                 // console.log(response.consoles.length) *** test code to make sure we got what we wanted. returns 9
@@ -50,7 +53,11 @@ document.getElementById("loadConsole").addEventListener("click", () => {
 
 
             }
+            else if(xhr.status != 200){
+                message.textContent = `Error loading consoles. Error code: ${xhr.status}`
+            }
         }
     }
+
     xhr.send()
 })
